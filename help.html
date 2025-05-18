@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | WeatherWear</title>
+    <link rel="stylesheet" href="Helpstyles.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="index.html" class="logo">WeatherWear</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="help.html" class="active">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="help-container">
+        <section class="help-hero">
+            <h1>Help Center</h1>
+            <p>Get the most out of WeatherWear with these guides and FAQs</p>
+            <div class="search-help">
+                <input type="text" placeholder="Search help articles...">
+                <button>Search</button>
+            </div>
+        </section>
+
+        <section class="quick-guide">
+            <h2>Quick Start Guide</h2>
+            <div class="guide-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Enter Your Location</h3>
+                        <p>Type your city name or allow GPS access for automatic detection.</p>
+                        <img src="images/location-step.png" alt="Location input example">
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Get Weather Analysis</h3>
+                        <p>Our system fetches real-time weather data from Weatherstack API.</p>
+                        <img src="images/weather-step.png" alt="Weather display example">
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Receive Recommendations</h3>
+                        <p>View your personalized outfit suggestions based on current conditions.</p>
+                        <img src="images/recommendation-step.png" alt="Recommendation example">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How accurate are the clothing recommendations?
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our recommendations are based on real-time weather data from Weatherstack API and our proprietary algorithm that considers temperature, precipitation, wind speed, and UV index. Accuracy depends on the precision of weather data for your location.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I save my clothing preferences?
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! After creating an account, you can save preferences like preferred styles (casual/formal), clothing items you own, and sensitivity to cold/heat for more personalized suggestions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Why does the app use "Feels Like" temperature?
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>"Feels Like" temperature accounts for wind chill and humidity, giving a better indication of how the weather actually affects your comfort. We prioritize this when it differs significantly from the actual temperature.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How often is the weather data updated?
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Weather data refreshes every 30 minutes when you have the app open, or whenever you manually refresh or change locations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-support">
+            <h2>Still Need Help?</h2>
+            <div class="contact-options">
+                <div class="contact-method">
+                    <img src="icons/email.svg" alt="Email icon">
+                    <h3>Email Us</h3>
+                    <p>support@weatherwear.app</p>
+                    <p>Typically responds within 24 hours</p>
+                </div>
+                <div class="contact-method">
+                    <img src="icons/chat.svg" alt="Chat icon">
+                    <h3>Live Chat</h3>
+                    <p>Available Mon-Fri, 9AM-5PM EST</p>
+                    <button class="chat-button">Start Chat</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>email: info@weatherwear.app</p>
+                <p>phone: (123) 456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="icons/facebook.svg" alt="Facebook"></a>
+                    <a href="#"><img src="icons/twitter.svg" alt="Twitter"></a>
+                    <a href="#"><img src="icons/instagram.svg" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2023 WeatherWear. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="help.js"></script>
+</body>
+</html>

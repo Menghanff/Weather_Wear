@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherWear - Smart Outfit Recommendations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="index.html" class="logo">WeatherWear</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="home-container">
+        <section class="weather-search">
+            <div class="search-container">
+                <form id="weatherForm">
+                <input type="text" id="locationInput" placeholder="Enter city (e.g. New York)" required>
+                <button type="submit">Get Weather</button>
+                
+                <div class="or-divider">OR</div>
+                <button type="button" id="autoFetchBtn"> Use Current Location</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="weatherResult" ></section>
+
+        <section class="weather-display" id="weather-display" style="display: none;">
+            <div class="weather-card">
+                <div class="weather-main">
+                    <div class="temperature">
+                        <span id="current-temp">24</span>°C
+                    </div>
+                    <div class="weather-condition">
+                        <img id="weather-icon" src="icons/sunny.png" alt="Sunny">
+                        <span id="weather-desc">Sunny</span>
+                    </div>
+                </div>
+                <div class="weather-details">
+                    <div class="detail">
+                        <span class="label">Feels Like</span>
+                        <span id="feels-like" class="value">26°C</span>
+                    </div>
+                    <div class="detail">
+                        <span class="label">Humidity</span>
+                        <span id="humidity" class="value">65%</span>
+                    </div>
+                    <div class="detail">
+                        <span class="label">Wind</span>
+                        <span id="wind-speed" class="value">12 km/h</span>
+                    </div>
+                    <div class="detail">
+                        <span class="label">UV Index</span>
+                        <span id="uv-index" class="value">6 (High)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="recommendation-section" id="recommendation-section" style="display: none;">
+            <h2><i class="fas fa-tshirt"></i> Recommended Outfit</h2>
+            <div class="recommendation-cards">
+                <div class="recommendation-card">
+                    <h3>Upper Body</h3>
+                    <ul id="upper-body">
+                        <li>Short-sleeve shirt</li>
+                        <li>Light jacket</li>
+                    </ul>
+                </div>
+                <div class="recommendation-card">
+                    <h3>Lower Body</h3>
+                    <ul id="lower-body">
+                        <li>Shorts</li>
+                    </ul>
+                </div>
+                <div class="recommendation-card">
+                    <h3>Accessories</h3>
+                    <ul id="accessories">
+                        <li>Sunglasses</li>
+                        <li>Sunscreen</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="special-notes" id="special-notes">
+                <p><i class="fas fa-umbrella"></i> <strong>Note:</strong> No rain expected today</p>
+            </div>
+        </section>
+
+        <section class="recent-searches" id="recent-searches" style="display: none;">
+            <h2><i class="fas fa-history"></i> Recent Searches</h2>
+            <div class="recent-items" id="recent-items">
+                <!-- Dynamically populated -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>email: info@weatherwear.app</p>
+                <p>phone: (123) 456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="icons/facebook.svg" alt="Facebook"></a>
+                    <a href="#"><img src="icons/twitter.svg" alt="Twitter"></a>
+                    <a href="#"><img src="icons/instagram.svg" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <p>&copy; 2023 WeatherWear. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+    <script src="weather.js"></script>
+</body>
+</html>
