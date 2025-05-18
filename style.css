@@ -326,6 +326,30 @@
 }
 
 
+/*clothes*/
+#recommendationSection {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+#recommendationSection h2 {
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+#recommendationList {
+  list-style: none;
+  padding: 0;
+}
+
+#recommendationList li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #ddd;
+}
 
 
 

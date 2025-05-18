@@ -96,22 +96,12 @@ function displayWeather(data, title) {
       <p><strong>Pressure:</strong> ${pressure} mb</p>
       <p><strong>Visibility:</strong> ${visibility} km</p>
     `;
+
+    generateClothingRecommendation({ temperature, precip, wind_speed, humidity });
   }
   resultDiv.style.display = "block";
 }
 
-function displayForecast(location, forecast, date) {
-  resultDiv.innerHTML = `
-    <h3>Forecast for ${location.name}, ${location.country} on ${date}</h3>
-    <p><strong>Avg Temp:</strong> ${forecast.avgtemp}°C</p>
-    <p><strong>Min Temp:</strong> ${forecast.mintemp}°C</p>
-    <p><strong>Max Temp:</strong> ${forecast.maxtemp}°C</p>
-    <p><strong>UV Index:</strong> ${forecast.uv_index}</p>
-    <p><strong>Sunrise:</strong> ${forecast.astro.sunrise}</p>
-    <p><strong>Sunset:</strong> ${forecast.astro.sunset}</p>
-  `;
-  resultDiv.style.display = "block";
-}
 
 function displayHistorical(location, history, date) {
   resultDiv.innerHTML = `
@@ -130,3 +120,34 @@ function showError(err) {
   resultDiv.style.display = "block";
   console.error(err);
 }
+
+function generateClothingRecommendation({ temperature, precip, wind_speed, humidity }) {
+  const list = document.getElementById("recommendationList");
+  list.innerHTML = "";
+
+  // Basic recommendation logic
+  if (temperature >= 28) {
+    list.innerHTML += "<li>🧢 Wear light clothing like t-shirts and shorts</li>";
+  } else if (temperature >= 18) {
+    list.innerHTML += "<li>👕 A t-shirt with jeans or light jacket is ideal</li>";
+  } else if (temperature >= 8) {
+    list.innerHTML += "<li>🧥 Wear a warm jacket and long pants</li>";
+  } else {
+    list.innerHTML += "<li>🧣 Bundle up with a coat, hat, and gloves</li>";
+  }
+
+  if (precip > 0.1) {
+    list.innerHTML += "<li>🌧 Bring an umbrella or wear a raincoat</li>";
+  }
+
+  if (wind_speed > 20) {
+    list.innerHTML += "<li>💨 Consider a windbreaker for strong wind</li>";
+  }
+
+  if (humidity >= 80) {
+    list.innerHTML += "<li>💦 High humidity — wear breathable fabrics</li>";
+  }
+
+  document.getElementById("recommendationSection").style.display = "block";
+}
+
