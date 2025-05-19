@@ -73,6 +73,12 @@ async function getHistorical(query, date) {
   }
 }
 
+const { weather_icons, weather_descriptions } = data.current;
+document.getElementById("weather_icons").src = data.current.weather_icons[0];
+document.getElementById("weather_icons").alt = data.current.weather_descriptions[0];
+document.getElementById("weather_description").textContent = data.current.weather_descriptions[0];
+
+
 function displayWeather(data, title) {
   if (data.error) {
     resultDiv.innerHTML = `<p>Error: ${data.error.info}</p>`;
