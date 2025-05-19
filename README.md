@@ -1,15 +1,15 @@
 Project Title:
 
-WeatherWear
+<h2>WeatherWear</h2>
 
 Here is the description doc:https://docs.google.com/document/d/1rT6e9Gfeg51PYnj5irGrTN6-xYLV9ziw/edit?usp=sharing&ouid=104075584570460470343&rtpof=true&sd=true
 
-Description:
+<strong>Description:</strong>
 
 WeatherWear is a weather-responsive outfit recommendation web application. It uses real-time, forecast, and historical weather data to generate smart clothing suggestions based on temperature, humidity, wind speed, and precipitation.
 
 
-Users can:
+<strong>Users can:</strong>
 - Enter any location (city or ZIP code)
 - Auto-detect location via IP
 - View current weather conditions
@@ -37,7 +37,8 @@ weather-wear/
 │   └── README.md        # Developer documentation
 ├── /assets/             # Image or icon resources (if any)
 
-Installation Instructions
+<strong>Installation Instructions</strong>
+
 1. Clone the repository:
    git clone https://github.com/your-team/weather-wear.git
    cd weather-wear
@@ -61,19 +62,22 @@ This project uses the Weatherstack API (https://weatherstack.com/). Sign up to g
 
 const apiKey = "your_api_key_here";
 
-Endpoints used:
+<strong>Endpoints used:</strong>  
+
 
 /current?access_key=KEY&query=       [GET] Fetch current weather for a location
 /forecast?access_key=KEY&query=&forecast_days=1   [GET] Fetch 1-day forecast
 /historical?access_key=KEY&query=&historical_date=   [GET] Fetch weather for a specific date
 
-Testing
+<strong>Testing</strong>
+
 No unit tests are currently implemented.
 
 If expanding the project with a backend or more complex frontend logic, consider integrating:
 - Jest for JS testing
 - Cypress for UI testing
 Known Bugs / Limitations:
+
 
 •	- IP-based auto-location may be blocked on some networks or produce inaccurate city names.
 •	- Historical forecast is limited to a single date per request due to API limitations.
@@ -89,5 +93,5 @@ Roadmap for Future Development:
 •	- Dark mode and accessibility improvements
 •	- Package into a Progressive Web App (PWA)
 
-Contact:
+<strong>Contact:</strong>
 Please contact the original developer team via GitHub for any issues or questions.
