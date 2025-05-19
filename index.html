@@ -4,133 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherWear - Smart Outfit Recommendations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="site-header">
         <nav class="main-nav">
             <a href="index.html" class="logo">WeatherWear</a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="help.html">Help</a></li>
-            </ul>
+            <div class="nav-links">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+            </div>
         </nav>
     </header>
 
     <main class="home-container">
         <section class="weather-search">
-            <div class="search-container">
-                <form id="weatherForm">
-                <input type="text" id="locationInput" placeholder="Enter city (e.g. New York)" required>
-                <button type="submit">Get Weather and outfit recommendation</button>
-                
+            <div class="search-card">
+                <h1><i class="fas fa-tshirt"></i> Weather-Based Outfits</h1>
+                <div class="search-group">
+                    <input type="text" id="locationInput" placeholder="Enter city or zip code...">
+                    <button id="searchBtn"><i class="fas fa-search"></i> Get Outfit</button>
+                </div>
                 <div class="or-divider">OR</div>
-                <button type="button" id="autoFetchBtn"> Use Current Location</button>
-                </form>
+                <button id="gpsBtn"><i class="fas fa-location-arrow"></i> Use My Location</button>
             </div>
         </section>
 
-        <section id="weatherResult" ></section>
-
-        <section id="recommendationSection" style="display: none;">
-        <h2>👕 Outfit Recommendation</h2>
-        <ul id="recommendationList"></ul>
-        </section>
-
-
-        <section class="weather-display" id="weather-display" style="display: none;">
-            <div class="weather-card">
-                <div class="weather-main">
-                    <div class="temperature">
-                        <span id="current-temp">24</span>°C
+        <section class="weather-dashboard hidden" id="weatherDashboard">
+            <div class="weather-header">
+                <h2 id="locationTitle">Current Location</h2>
+                <p id="weatherDescription">Weather description</p>
+            </div>
+            
+            <div class="weather-grid">
+                <!-- Current Conditions -->
+                <div class="weather-card primary-card">
+                    <div class="temp-display">
+                        <span id="currentTemp">--</span>
+                        <span class="temp-unit">°C</span>
                     </div>
-                    <div class="weather-condition">
-                        <img id="weather-icon" src="icons/sunny.png" alt="Sunny">
-                        <span id="weather-desc">Sunny</span>
+                    <div class="weather-icon">
+                        <img id="weatherIcon" src="icons/sunny.png" alt="Weather icon">
+                    </div>
+                    <div class="weather-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-temperature-low"></i>
+                            <span id="feelsLike">Feels Like: --°C</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-tint"></i>
+                            <span id="humidity">Humidity: --%</span>
+                        </div>
                     </div>
                 </div>
-                <div class="weather-details">
-                    <div class="detail">
-                        <span class="label">Feels Like</span>
-                        <span id="feels-like" class="value">26°C</span>
-                    </div>
-                    <div class="detail">
-                        <span class="label">Humidity</span>
-                        <span id="humidity" class="value">65%</span>
-                    </div>
-                    <div class="detail">
-                        <span class="label">Wind</span>
-                        <span id="wind-speed" class="value">12 km/h</span>
-                    </div>
-                    <div class="detail">
-                        <span class="label">UV Index</span>
-                        <span id="uv-index" class="value">6 (High)</span>
-                    </div>
+                
+                <!-- Secondary Weather Data -->
+                <div class="weather-card">
+                    <h3><i class="fas fa-wind"></i> Wind</h3>
+                    <p id="windSpeed">-- km/h</p>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-umbrella"></i> Rain</h3>
+                    <p id="precipitation">--%</p>
+                </div>
+                
+                <div class="weather-card">
+                    <h3><i class="fas fa-sun"></i> UV Index</h3>
+                    <p id="uvIndex">--</p>
+                </div>
+            </div>
+            
+            <!-- Outfit Recommendation -->
+            <div class="outfit-recommendation">
+                <h2><i class="fas fa-magic"></i> Recommended Outfit</h2>
+                <div class="outfit-grid" id="outfitRecommendation">
+                    <!-- Dynamically filled by JavaScript -->
+                </div>
+                
+                <div class="weather-tips" id="weatherTips">
+                    <!-- Tips will appear here -->
                 </div>
             </div>
         </section>
 
-        <section class="recommendation-section" id="recommendation-section" style="display: none;">
-            <h2><i class="fas fa-tshirt"></i> Recommended Outfit</h2>
-            <div class="recommendation-cards">
-                <div class="recommendation-card">
+        <section class="recent-searches hidden" id="recentSearches">
+            <h2><i class="fas fa-history"></i> Recent Searches</h2>
+            <div class="recent-items" id="recentItems">
+                <!-- Dynamically filled -->
+            </div>
+        </section>
+
+        <!-- In your HTML (replace the existing outfit-recommendation section) -->
+<div class="outfit-recommendation">
+    <h2><i class="fas fa-magic"></i> Recommended Outfit</h2>
+    
+    <div class="outfit-container">
+        <!-- Left Side: Visual Outfit Suggestion -->
+        <div class="outfit-visual">
+            <img src="https://imerikamarie.com/wp-content/uploads/2023/08/School-Outfit-Ideas.png" alt="Recommended outfit visual" class="outfit-image">
+            <button class="outfit-actions">
+                <i class="fas fa-sync-alt"></i> Refresh Suggestion
+            </button>
+        </div>
+        
+        <!-- Right Side: Detailed Recommendations -->
+        <div class="outfit-details">
+            <div class="outfit-grid" id="outfitRecommendation">
+                <!-- Upper Body -->
+                <div class="outfit-item">
+                    <i class="fas fa-arrow-up"></i>
                     <h3>Upper Body</h3>
-                    <ul id="upper-body">
-                        <li>Short-sleeve shirt</li>
-                        <li>Light jacket</li>
+                    <ul>
+                        <li>Lightweight jacket</li>
+                        <li>Long-sleeve shirt</li>
                     </ul>
                 </div>
-                <div class="recommendation-card">
+                
+                <!-- Lower Body -->
+                <div class="outfit-item">
+                    <i class="fas fa-arrow-down"></i>
                     <h3>Lower Body</h3>
-                    <ul id="lower-body">
-                        <li>Shorts</li>
+                    <ul>
+                        <li>Jeans</li>
+                        <li>Comfortable shoes</li>
                     </ul>
                 </div>
-                <div class="recommendation-card">
+                
+                <!-- Accessories -->
+                <div class="outfit-item">
+                    <i class="fas fa-glasses"></i>
                     <h3>Accessories</h3>
-                    <ul id="accessories">
+                    <ul>
                         <li>Sunglasses</li>
-                        <li>Sunscreen</li>
+                        <li>Light scarf</li>
                     </ul>
                 </div>
             </div>
             
-            <div class="special-notes" id="special-notes">
-                <p><i class="fas fa-umbrella"></i> <strong>Note:</strong> No rain expected today</p>
-            </div>
-        </section>
-
-        <section class="recent-searches" id="recent-searches" style="display: none;">
-            <h2><i class="fas fa-history"></i> Recent Searches</h2>
-            <div class="recent-items" id="recent-items">
-                <!-- Dynamically populated -->
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>email: info@weatherwear.app</p>
-                <p>phone: (123) 456-7890</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/2048px-2023_Facebook_icon.svg.png" alt="Facebook"></a>
-                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/5969/5969020.png" alt="Twitter"></a>
-                    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <p>&copy; 2023 WeatherWear. All rights reserved.</p>
+            <div class="weather-tips" id="weatherTips">
+                <p><i class="fas fa-sun"></i> UV Index is high today - don't forget sunscreen!</p>
             </div>
         </div>
-    </footer>
+    </div>
+</div>
+
+
+
+
+
+    </main>
+    
+    <footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>email: info@weatherwear.app</p>
+            <p>phone: (123) 456-7890</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/2048px-2023_Facebook_icon.svg.png" alt="Facebook"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/256/5969/5969020.png" alt="Twitter"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <p>&copy; 2023 WeatherWear. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
 
     <script src="home.js"></script>
-    <script src="weather.js"></script>
 </body>
 </html>
