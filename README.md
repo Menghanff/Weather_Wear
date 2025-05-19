@@ -67,12 +67,14 @@ No unit tests are currently implemented.
 If expanding the project with a backend or more complex frontend logic, consider integrating:
 - Jest for JS testing
 - Cypress for UI testing
-Known Bugs / Limitations
+Known Bugs / Limitations:
+
 •	- IP-based auto-location may be blocked on some networks or produce inaccurate city names.
 •	- Historical forecast is limited to a single date per request due to API limitations.
 •	- Forecast is limited to 1 day on the free Weatherstack plan.
 •	- No offline mode support.
-Roadmap for Future Development
+Roadmap for Future Development:
+
 •	- Add 3-day and 7-day forecast support (API upgrade required)
 •	- Add persistent recent searches (using localStorage or backend)
 •	- Add user preferences (e.g., activity type, indoor/outdoor)
@@ -81,5 +83,5 @@ Roadmap for Future Development
 •	- Dark mode and accessibility improvements
 •	- Package into a Progressive Web App (PWA)
 
-Contact
+Contact:
 Please contact the original developer team via GitHub for any issues or questions.
