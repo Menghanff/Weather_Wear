@@ -1,7 +1,11 @@
-Project Title
+Project Title:
+
 WeatherWear
-Description
+
+Description:
+
 WeatherWear is a weather-responsive outfit recommendation web application. It uses real-time, forecast, and historical weather data to generate smart clothing suggestions based on temperature, humidity, wind speed, and precipitation.
+
 
 Users can:
 - Enter any location (city or ZIP code)
