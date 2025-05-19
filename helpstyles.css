@@ -43,6 +43,53 @@
     font-weight: bold;
 }
 
+
+.search-results {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.results-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.help-article {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.help-article h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    background: #f0f0f0;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: var(--light-text);
+}
+
+
 /* Quick Guide Section */
 .guide-steps {
     display: flex;
