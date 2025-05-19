@@ -396,3 +396,45 @@ button {
         order: -1; /* Move visual above details on mobile */
     }
 }
+
+
+/* Dressing Tips Section */
+.dressing-tips {
+    background: #eef4ff;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top: 4px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    font-size: 1rem;
+  }
+  
+  .dressing-tips h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .dressing-tips h3 {
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+  }
+  
+  .dressing-tips ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+  }
+  
+  .dressing-tips ul ul {
+    list-style-type: circle;
+    margin-top: 0.5rem;
+  }
+  
+  .dressing-tips li {
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+  }
