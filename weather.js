@@ -125,29 +125,63 @@ function generateClothingRecommendation({ temperature, precip, wind_speed, humid
   const list = document.getElementById("recommendationList");
   list.innerHTML = "";
 
-  // Basic recommendation logic
   if (temperature >= 28) {
-    list.innerHTML += "<li>🧢 Wear light clothing like t-shirts and shorts</li>";
+    list.innerHTML += `
+      <li>
+        🧢 Wear light clothing like t-shirts and shorts<br>
+        <img src="https://cdn-icons-png.flaticon.com/512/3210/3210104.png" alt="T-shirt" width="50">
+        <img src="https://cdn-icons-png.flaticon.com/512/2093/2093798.png" alt="Shorts" width="50">
+      </li>`;
   } else if (temperature >= 18) {
-    list.innerHTML += "<li>👕 A t-shirt with jeans or light jacket is ideal</li>";
+    list.innerHTML += `
+      <li>
+        👕 A t-shirt with jeans or light jacket is ideal<br>
+        <img src="https://cdn-icons-png.flaticon.com/512/3210/3210104.png" alt="T-shirt" width="50">
+        <img src="https://cdn-icons-png.flaticon.com/512/664/664466.png" alt="Jeans" width="50">
+      </li>`;
   } else if (temperature >= 8) {
-    list.innerHTML += "<li>🧥 Wear a warm jacket and long pants</li>";
+    list.innerHTML += `
+      <li>
+        🧥 Wear a warm jacket and long pants<br>
+        <img src="https://cdn-icons-png.flaticon.com/512/892/892458.png" alt="Jacket" width="50">
+        <img src="https://cdn-icons-png.flaticon.com/512/664/664466.png" alt="Pants" width="50">
+      </li>`;
   } else {
-    list.innerHTML += "<li>🧣 Bundle up with a coat, hat, and gloves</li>";
+    list.innerHTML += `
+      <li>
+        🧣 Bundle up with a coat, hat, and gloves<br>
+        <img src="https://cdn-icons-png.flaticon.com/512/207/207687.png" alt="Coat" width="50">
+        <img src="https://cdn-icons-png.flaticon.com/512/680/680348.png" alt="Hat" width="50">
+        <img src="https://static.vecteezy.com/system/resources/previews/004/867/842/non_2x/protective-rubber-hypoallergenic-gloves-line-icon-free-vector.jpg" alt="Gloves" width="50">
+      </li>`;
   }
 
   if (precip > 0.1) {
-    list.innerHTML += "<li>🌧 Bring an umbrella or wear a raincoat</li>";
+    list.innerHTML += `
+      <li>
+        🌧 Bring an umbrella or wear a raincoat<br>
+        <img src="https://cdn-icons-png.flaticon.com/512/89/89762.png" alt="Umbrella" width="50">
+        <img src="https://cdn-icons-png.flaticon.com/512/1965/1965183.png" alt="Raincoat" width="50">
+      </li>`;
   }
 
   if (wind_speed > 20) {
-    list.innerHTML += "<li>💨 Consider a windbreaker for strong wind</li>";
+    list.innerHTML += `
+      <li>
+        💨 Consider a windbreaker for strong wind<br>
+        <img src="https://cdn-icons-png.flaticon.com/512/614/614281.png" alt="Windbreaker" width="50">
+      </li>`;
   }
 
   if (humidity >= 80) {
-    list.innerHTML += "<li>💦 High humidity — wear breathable fabrics</li>";
+    list.innerHTML += `
+      <li>
+        💦 High humidity — wear breathable fabrics<br>
+        <img src="https://static.thenounproject.com/png/2384240-200.png" alt="Breathable Fabric" width="50">
+      </li>`;
   }
 
   document.getElementById("recommendationSection").style.display = "block";
 }
+
 
