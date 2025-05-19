@@ -80,5 +80,6 @@ Roadmap for Future Development
 •	- Integrate geolocation API for precise coordinates
 •	- Dark mode and accessibility improvements
 •	- Package into a Progressive Web App (PWA)
+
 Contact
 Please contact the original developer team via GitHub for any issues or questions.
